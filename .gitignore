@@ -1,3 +1,6 @@
 .vs
 Trello/bin
 Trello/obj
+TrelloTests/bin
+TrelloTests/obj
+packages
