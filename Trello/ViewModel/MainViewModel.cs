@@ -22,10 +22,16 @@ namespace Trello.ViewModel
 
         public ViewModelBase CurrentViewModel
         {
-            get;
-            set;
+            get { return _currentViewModel; }
+            set
+            {
+                if (_currentViewModel == value)
+                    return;
+                _currentViewModel = value;
+                RaisePropertyChanged(() => CurrentViewModel);
+            }
         }
-
+        private ViewModelBase _currentViewModel;
         public MainViewModel()
         {
             ////if (IsInDesignMode)
