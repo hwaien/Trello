@@ -1,4 +1,4 @@
-﻿<Window x:Class="Trello.MainWindow"
+<Window x:Class="Trello.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -9,7 +9,7 @@
         Title="MainWindow" Height="900" Width="1200" MinHeight="800" MinWidth="1024">
     <Grid Background="{DynamicResource ToolBarBackgroundBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
+            
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <!--

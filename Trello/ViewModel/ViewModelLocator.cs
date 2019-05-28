@@ -45,6 +45,7 @@ namespace Trello.ViewModel
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<HomeViewModel>();
+            SimpleIoc.Default.Register<CardsManager>();
         }
 
         public MainViewModel Main
