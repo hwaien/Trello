@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel;
+using GalaSoft.MvvmLight;
+using Telerik.JustMock;
 using Xunit;
 
 namespace Trello.ViewModel
@@ -22,7 +24,7 @@ namespace Trello.ViewModel
             };
 
             // Act
-            subjectUnderTest.CurrentViewModel = new HomeViewModel();
+            subjectUnderTest.CurrentViewModel = Mock.Create<ViewModelBase>();
 
             // Assert
             Assert.True(propertyChangedEventRaised);
@@ -33,7 +35,7 @@ namespace Trello.ViewModel
         {
             // Arrange
             var propertyChangedEventRaised = false;
-            var sameInstance = new HomeViewModel();
+            var sameInstance = Mock.Create<ViewModelBase>();
             var subjectUnderTest = new MainViewModel { CurrentViewModel = sameInstance };
             subjectUnderTest.PropertyChanged += delegate { propertyChangedEventRaised = true; };
 
