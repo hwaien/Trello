@@ -1,8 +1,8 @@
-﻿using System.Collections;
+﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
-using Newtonsoft.Json;
+using System.Linq;
 using Trello.Model;
 
 namespace Trello.ViewModel
@@ -35,7 +35,17 @@ namespace Trello.ViewModel
 
         public IEnumerable<Card> Load(string path)
         {
-            var contents = File.ReadAllText(path);
+            string contents;
+
+            try
+            {
+                contents = File.ReadAllText(path);
+            }
+            catch (FileNotFoundException)
+            {
+                return Enumerable.Empty<Card>();
+            }
+
             return JsonConvert.DeserializeObject<IEnumerable<Card>>(contents);
         }
     }

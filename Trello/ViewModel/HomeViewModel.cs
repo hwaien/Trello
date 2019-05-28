@@ -24,33 +24,15 @@ namespace Trello.ViewModel
 
             _cardsManager.Load();
 
-            // TODO Delete CreateTodoItems when Load is implemented
-            CreateTodoItems();
+            TodoItems = _cardsManager.TodoItems;
+            DoingItems = _cardsManager.DoingItems;
+            CompletedItems = _cardsManager.CompletedItems;
         }
 
         private void OnDeleteCommand(Card card)
         {
             // TODO Delete item and save
             _cardsManager.Save();
-        }
-
-        private void CreateTodoItems()
-        {
-            TodoItems = new ObservableCollection<Card>();
-
-            var card = new Card("Buy tickets", "Caravan Palace in 'The Observatory'");
-            card.DueState = DueState.Expired;
-            TodoItems.Add(card);
-
-            card = new Card("Rent", "$150, Due by 01/01/2020");
-            TodoItems.Add(card);
-
-            card = new Card("Groceries list", "Milk, bread, buttermilk, feta cheese, olives.");
-            TodoItems.Add(card);
-
-            DoingItems = new ObservableCollection<Card>();
-            card = new Card("Read a book", "Neon Prey by John Sandford");
-            DoingItems.Add(card);
         }
     }
 }
